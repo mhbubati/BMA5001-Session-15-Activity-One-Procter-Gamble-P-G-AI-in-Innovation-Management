@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P&G – AI in Innovation (BMA5001)</title>
+    <style>
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            background: #fafbfc;
+            color: #1a1a2e;
+            padding: 30px 40px;
+            line-height: 1.6;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER (UPDATED) --- */
+        .header {
+            border-bottom: 4px solid #003366;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+
+        .header .module-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #003366;
+            letter-spacing: 0.3px;
+        }
+
+        .header .session-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #003366;
+            margin-top: 2px;
+        }
+
+        .header .activity-type {
+            font-size: 15px;
+            color: #555;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1 {
+            font-size: 32px;
+            color: #003366;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+            border-left: 4px solid #003366;
+            padding-left: 16px;
+            background: #f5f7fa;
+            padding: 12px 18px;
+            border-radius: 4px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #003366;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #e0e7ee;
+            padding-bottom: 6px;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: #1a3a5c;
+            margin-top: 20px;
+            margin-bottom: 6px;
+        }
+
+        p {
+            margin-bottom: 14px;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        ul,
+        ol {
+            margin: 10px 0 15px 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* --- BOXES --- */
+        .highlight-box {
+            background: #f0f7ff;
+            border-left: 5px solid #003366;
+            padding: 16px 20px;
+            margin: 18px 0;
+            border-radius: 4px;
+            font-size: 17px;
+        }
+
+        .highlight-box strong {
+            color: #003366;
+        }
+
+        .quote-box {
+            background: #f5f7fa;
+            border-left: 5px solid #2ECC71;
+            padding: 16px 22px;
+            margin: 18px 0;
+            border-radius: 4px;
+            font-style: italic;
+            color: #1a3a5c;
+            font-size: 17px;
+        }
+
+        .quote-box .source {
+            font-style: normal;
+            font-weight: 600;
+            margin-top: 6px;
+            color: #003366;
+        }
+
+        .key-takeaway {
+            background: #e8f8f0;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 18px 0;
+            border-left: 5px solid #2ECC71;
+        }
+
+        .key-takeaway strong {
+            color: #1a7a4a;
+        }
+
+        /* --- TABLES --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0 22px;
+            font-size: 16px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+        }
+
+        th {
+            background: #003366;
+            color: white;
+            padding: 12px 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #e0e7ee;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* --- LINKS --- */
+        a {
+            color: #003366;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #4A90E2;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            margin-top: 45px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e7ee;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        .footer .module-code {
+            font-weight: 700;
+            color: #003366;
+        }
+
+        .footer .divider {
+            color: #ccc;
+            padding: 0 8px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media print {
+            body {
+                padding: 25px 30px;
+                background: white;
+            }
+            .header {
+                border-bottom-color: #003366;
+            }
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 18px;
+            }
+            h1 {
+                font-size: 26px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            h3 {
+                font-size: 18px;
+            }
+            p,
+            li,
+            .highlight-box,
+            .quote-box {
+                font-size: 15px;
+            }
+            table {
+                font-size: 14px;
+                display: block;
+                overflow-x: auto;
+            }
+            th,
+            td {
+                padding: 8px 10px;
+            }
+            .header .session-title {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- HEADER (UPDATED) -->
+    <!-- ============================================================ -->
+
+    <div class="header">
+        <div class="module-name">Innovation Management - BMA5001</div>
+        <div class="session-title">Session 15: AI in Innovation Management</div>
+        <div class="activity-type">Activity One - Student Handout</div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TITLE -->
+    <!-- ============================================================ -->
+
+    <h1>🏢 Procter &amp; Gamble (P&amp;G) – AI in Innovation</h1>
+    <div class="subtitle">A Real-World Case Study for Innovation Management</div>
+
+    <!-- ============================================================ -->
+    <!-- INTRODUCTION -->
+    <!-- ============================================================ -->
+
+    <h2>📖 Introduction</h2>
+
+    <p>
+        Procter &amp; Gamble (P&amp;G) is one of the world's largest consumer goods companies. You know their products:
+        <strong>Tide</strong> laundry detergent, <strong>Pampers</strong> nappies, <strong>Gillette</strong> razors,
+        <strong>Oral-B</strong> toothbrushes, and <strong>Olay</strong> skincare.
+    </p>
+
+    <p>
+        P&amp;G has been using data to understand customers for <strong>over 100 years</strong>. In 1924, the CEO asked
+        an economist to find out how customers used Ivory soap. The result? Ivory was repositioned as a personal care
+        product instead of a household item.
+    </p>
+
+    <div class="quote-box">
+        "We've always had a drive for analytics and to understand the dynamics behind our business. But with AI,
+        the nature of questions we can ask and the depth of answers we can provide have expanded dramatically."
+        <div class="source">– Jeff Goldman, VP of Enterprise Data Science, P&amp;G</div>
+    </div>
+
+    <p>
+        Today, P&amp;G is using <strong>analytical, generative, and agentic AI</strong> to develop new products,
+        optimise supply chains, and transform R&amp;D.
+    </p>
+
+    <!-- ============================================================ -->
+    <!-- AI APPLICATIONS -->
+    <!-- ============================================================ -->
+
+    <h2>🏢 P&amp;G's AI Applications</h2>
+
+    <h3>🔧 The "AI Factory"</h3>
+    <p>
+        P&amp;G developed an <strong>"AI Factory"</strong> – a platform that provides data sources, software tools,
+        methods, and security protocols to rapidly develop, test, deploy, and monitor AI algorithms.
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Time saved</strong></td>
+                <td>Reduces model deployment by <strong>~6 months</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Speed</strong></td>
+                <td>On the manufacturing floor, AI cuts model deployment time by up to <strong>90%</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Impact</strong></td>
+                <td>In Brazil, AI reduced out-of-stock occurrences by <strong>15%</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="key-takeaway">
+        <strong>💡 Key Takeaway:</strong> The "AI Factory" is not just a tool — it is an infrastructure that makes AI
+        <em>scalable</em> across the entire organisation.
+    </div>
+
+    <h3>🍼 Pampers My Perfect Fit</h3>
+    <p>
+        An AI-driven questionnaire that provides parents with diaper fit recommendations that are <strong>90% accurate</strong>
+        for preventing leaks – the most common pain point in the market.
+    </p>
+
+    <h3>👃 Perfume Development Digital Suite</h3>
+    <p>
+        An ecosystem of digital tools powered by AI and advanced data processing to create new fragrances
+        <strong>five times faster</strong> than previously possible.
+    </p>
+
+    <div class="highlight-box">
+        <strong>Key Insight:</strong> AI algorithms analyse millions of data points and help create perfume character models
+        based on consumer insights into what makes a fragrance smell good.
+    </div>
+
+    <h3>💡 Great Idea Generator</h3>
+    <p>
+        An AI tool that creates product and advertising concepts based on consumer trends and previous testing results.
+        It can greatly accelerate the progress of a new idea, from concept to advertisement to shelf.
+    </p>
+
+    <h3>💬 insightsPG</h3>
+    <p>
+        A generative front-end to business data. As P&amp;G's CIO put it:
+    </p>
+    <div class="quote-box">
+        "Why should you need a dashboard when you can talk to your data?"
+    </div>
+
+    <h3>👥 Project Genie</h3>
+    <p>
+        An AI tool that synthesises information from articles and help documents to provide information to over
+        <strong>800 customer service reps</strong>, greatly reducing question processing time.
+    </p>
+
+    <h3>🧪 R&amp;D Acceleration</h3>
+    <p>
+        AI is complementing the work of lab technicians to enable greater speed in molecular discovery. This is helping
+        break down functional silos between R&amp;D and commercial professionals.
+    </p>
+
+    <!-- ============================================================ -->
+    <!-- THE EXPERIMENT -->
+    <!-- ============================================================ -->
+
+    <h2>🧪 The "Cybernetic Teammate" Experiment</h2>
+
+    <p>
+        P&amp;G conducted a <strong>large-scale field experiment</strong> with <strong>776 professionals</strong>
+        across four business units.
+    </p>
+
+    <h3>The Four Models Tested</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>1. Individual, no AI</strong></td>
+                <td>Baseline – one person working alone</td>
+            </tr>
+            <tr>
+                <td><strong>2. Team, no AI</strong></td>
+                <td>Traditional cross-functional teamwork</td>
+            </tr>
+            <tr>
+                <td><strong>3. Individual + AI</strong></td>
+                <td>One person with AI support</td>
+            </tr>
+            <tr>
+                <td style="background: #e8f8f0; font-weight: 700;">4. Team + AI</td>
+                <td style="background: #e8f8f0;">Cross-functional team with AI – <span style="color: #27AE60;">⭐ BEST RESULTS</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>The Results</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Finding</th>
+                <th>Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Individuals with AI</strong></td>
+                <td>Matched the performance of teams without AI</td>
+            </tr>
+            <tr>
+                <td><strong>Teams with AI</strong></td>
+                <td>Produced the <strong>best outcomes</strong> – ideas ranking in the top 10% were <strong>3 times more likely</strong> to come from AI-augmented teams</td>
+            </tr>
+            <tr>
+                <td><strong>Breaking silos</strong></td>
+                <td>R&amp;D professionals using AI produced balanced solutions (not just technical), while commercial professionals produced balanced solutions (not just commercial)</td>
+            </tr>
+            <tr>
+                <td><strong>Emotional impact</strong></td>
+                <td>Individuals with AI showed <strong>46% increase</strong> in positive emotions; AI-augmented teams showed <strong>64% boost</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="quote-box">
+        "If you want to empower an individual to be as effective as a team, give them AI. But if you want to be in that
+        top 10% of performers, a full human team plus AI seems like the recipe for success."
+        <div class="source">– Fabrizio Dell'Acqua, Harvard Business School</div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- KEY LESSONS -->
+    <!-- ============================================================ -->
+
+    <h2>🔑 Key Lessons from P&amp;G</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 30%;">Lesson</th>
+                <th>P&amp;G's Approach</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Build the right infrastructure</strong></td>
+                <td>The "AI Factory" reduces deployment time by 6 months</td>
+            </tr>
+            <tr>
+                <td><strong>Keep humans in the loop</strong></td>
+                <td>"AI is a means, not an end. Be clear on what end you're trying to achieve."<br>
+                <span style="font-size: 14px; color: #666;">– Alfredo Colas, SVP IT North America</span></td>
+            </tr>
+            <tr>
+                <td><strong>Upskill your workforce</strong></td>
+                <td>Over 4,000 executives have completed an intensive 8-week AI upskilling program</td>
+            </tr>
+            <tr>
+                <td><strong>Democratise access</strong></td>
+                <td>"Why should you need a dashboard when you can talk to your data?" – InsightsPG</td>
+            </tr>
+            <tr>
+                <td><strong>Treat AI as a teammate</strong></td>
+                <td>The "cybernetic teammate" concept – AI is a partner, not a replacement</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="key-takeaway">
+        <strong>🎯 The Big Picture:</strong> P&amp;G's success comes from <em>integrating</em> AI into the organisation –
+        not just buying tools, but building culture, infrastructure, and skills around it.
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- DISCUSSION QUESTIONS -->
+    <!-- ============================================================ -->
+
+    <h2>💬 Discussion Questions</h2>
+
+    <ol style="list-style-type: decimal; font-weight: 500;">
+        <li style="margin-bottom: 12px; font-size: 17px;">
+            What does P&amp;G mean by <strong>"cybernetic teammate"</strong>? How does it differ from AI as a tool?
+            <div style="font-weight: 400; margin-top: 4px; color: #555; font-size: 15px;">
+                <em>💡 Hint: Think about the four models tested in the experiment.</em>
+            </div>
+        </li>
+        <li style="margin-bottom: 12px; font-size: 17px;">
+            According to the case, what role does <strong>human judgement</strong> still play in AI-driven innovation?
+            <div style="font-weight: 400; margin-top: 4px; color: #555; font-size: 15px;">
+                <em>💡 Hint: What did P&G's leaders say about AI being "a means, not an end"?</em>
+            </div>
+        </li>
+        <li style="margin-bottom: 12px; font-size: 17px;">
+            How does P&amp;G's <strong>"AI Factory"</strong> help scale AI across the company?
+            <div style="font-weight: 400; margin-top: 4px; color: #555; font-size: 15px;">
+                <em>💡 Hint: What does it provide to different teams and business units?</em>
+            </div>
+        </li>
+        <li style="margin-bottom: 12px; font-size: 17px;">
+            Why does AI help <strong>break down silos</strong> between R&amp;D and commercial teams?
+            <div style="font-weight: 400; margin-top: 4px; color: #555; font-size: 15px;">
+                <em>💡 Hint: What happened when R&D and commercial professionals used AI?</em>
+            </div>
+        </li>
+        <li style="margin-bottom: 12px; font-size: 17px;">
+            What is the balance between <strong>human intuition</strong> and <strong>AI analytics</strong> at P&amp;G?
+            <div style="font-weight: 400; margin-top: 4px; color: #555; font-size: 15px;">
+                <em>💡 Hint: How does P&G ensure humans remain in control?</em>
+            </div>
+        </li>
+    </ol>
+
+    <!-- ============================================================ -->
+    <!-- SOURCES -->
+    <!-- ============================================================ -->
+
+    <h2>📚 Sources for Further Reading</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 30%;">Source</th>
+                <th>What It Covers</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <strong>Davenport, T.H. &amp; Bean, R. (2025)</strong><br>
+                    <span style="font-size: 14px; color: #666;">MIT Sloan Management Review</span>
+                </td>
+                <td>
+                    <a href="https://sloanreview.mit.edu/article/how-procter-gamble-uses-ai-to-unlock-new-insights-from-data/" target="_blank">
+                        How Procter &amp; Gamble Uses AI to Unlock New Insights From Data
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Colas, A. &amp; Terwiesch, C. (2026)</strong><br>
+                    <span style="font-size: 14px; color: #666;">Knowledge at Wharton</span>
+                </td>
+                <td>
+                    <a href="https://knowledge.wharton.upenn.edu/article/from-strategy-to-shelf-how-pg-is-deploying-ai/" target="_blank">
+                        From Strategy to Shelf: How P&amp;G Is Deploying AI
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Dell'Acqua, F. et al. (2025)</strong><br>
+                    <span style="font-size: 14px; color: #666;">NBER Working Paper</span>
+                </td>
+                <td>
+                    <a href="https://www.nber.org/papers/w33641" target="_blank">
+                        The Cybernetic Teammate – Original experiment findings
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================================ -->
+
+    <div class="footer">
+        <p>
+            <span class="module-code">BMA5001</span>
+            <span class="divider">|</span>
+            Innovation Management
+            <span class="divider">|</span>
+            Session 15: AI in Innovation Management
+        </p>
+        <p style="margin-top: 6px; font-size: 13px;">
+            📄 Activity One – Student Handout &nbsp;|&nbsp; Based on published academic and industry sources
+        </p>
+    </div>
+
+</body>
+</html>
